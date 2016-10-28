@@ -56,7 +56,22 @@
             }
         };
 
+        var LoginRegistration = {
+            name: 'login',
+            url: '/signin',
+            templateUrl: 'auth/login.html?bust=' + (new Date().getTime()),
+            controller: 'LoginCtrl',
+            resolve: {
+                deps: ['$ocLazyLoad', '$http','$state','dataservice', '$rootScope',function($ocLazyLoad, $http,$state,dataservice,$rootScope){
+                    return $ocLazyLoad.load([
+                        'auth/loginController.ctrl.js'
+                    ], {serie: true});
+                }]
+            }
+        };
+
         $stateProvider.state(Dashboard.name,Dashboard);
+        $stateProvider.state(LoginRegistration.name,LoginRegistration);
 
     }]);
 
