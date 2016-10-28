@@ -1,0 +1,86 @@
+<div class="row reg-container">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a id="login-form-link" ng-class="form_classes.login" ng-click="show('login')">Login</a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a id="register-form-link" ng-class="form_classes.register" ng-click="show('register')">Register</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form ng-show="form_visible.login" role="form"
+                              method="post"
+                              id="login-form">
+                            <div class="form-group">
+                                <input ng-model="credentials.email" type="email" value="" placeholder="Email address" class="form-control" tabindex="1" id="login_email" name="email" >
+                            </div>
+                            <div class="form-group">
+                                <input ng-model="credentials.password" type="password" placeholder="Password" class="form-control" tabindex="2" id="password" name="password" >
+                            </div>
+                            <div class="form-group text-center">
+                                <input ng-model="credentials.remember_me" value="1" type="checkbox" id="remember" name="remember" class="" tabindex="3">
+                                <label for="remember"> Remember Me</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <input ng-click="submit_login()" type="submit" value="Log In" class="form-control btn btn-success" tabindex="4" id="login-submit" name="login-submit">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="text-center">
+                                            <a class="forgot-password" tabindex="5" href="http://phpoll.com/recover">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Register User Form -->
+                        <form ng-show="form_visible.register" role="form" method="post" id="register-form">
+
+                            <!-- First name -->
+                            <div class="form-group">
+                                <input ng-model="user.first_name" type="text" placeholder="First name" class="form-control" tabindex="1">
+                            </div>
+                            <!-- last name -->
+                            <div class="form-group">
+                                <input ng-model="user.last_name" type="text" placeholder="Last name" class="form-control" tabindex="2">
+                            </div>
+                            <!-- Email  -->
+                            <div class="form-group">
+                                <input ng-model="user.email" type="email" placeholder="Email" class="form-control" tabindex="3">
+                            </div>
+                            <!-- Password -->
+                            <div class="form-group">
+                                <input ng-model="user.password" type="password" placeholder="Password" class="form-control" tabindex="4">
+                            </div>
+                            <!-- Telephone -->
+                            <div class="form-group">
+                                <input ng-model="user.telephone" type="tel" placeholder="Telephone" class="form-control" tabindex="5">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <input ng-click="submit_registration()" type="submit" value="Register Now" class="form-control btn btn-register" tabindex="4" id="register-submit" name="register-submit">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

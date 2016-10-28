@@ -1,0 +1,150 @@
+<div class="clients-container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="pull-left">Clients</h1>
+        </div>
+    </div>
+    <uib-tabset active="active">
+        <uib-tab index="0" select="load_clients()">
+            <uib-tab-heading>Clients List</uib-tab-heading>
+            <h2>Clients List</h2>
+            <p ng-show="!clients.length">No Clients yet...</p>
+            <div class="list-group">
+                <a ng-repeat="client in clients" class="list-group-item" href="#">
+                    <h4 class="list-group-item-heading">{{client.name}}</h4>
+                </a>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" select="load_sources()">
+            <uib-tab-heading>Add Client</uib-tab-heading>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form class="form-horizontal" id="addClient" name="addClient">
+                        <fieldset>
+                            <legend>Add a Client</legend>
+                            <!-- Client Name -->
+                            <div class="form-group">
+                                <label for="client_name" class="col-lg-3 control-label">Company Name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_name" placeholder="Company Name" type="text" ng-model="client.name">
+                                </div>
+                            </div>
+
+                            <!-- Client Email -->
+                            <div class="form-group">
+                                <label for="client_email" class="col-lg-3 control-label">Company Email</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_email" placeholder="Company Email" type="email" ng-model="client.email">
+                                </div>
+                            </div>
+
+                            <!-- Client Website -->
+                            <div class="form-group">
+                                <label for="client_website" class="col-lg-3 control-label">Company Website</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_website" placeholder="Website" type="url" ng-model="client.website">
+                                </div>
+                            </div>
+
+                            <!-- Facebook Page-->
+                            <div class="form-group">
+                                <label for="client_face" class="col-lg-3 control-label">Facebook Page</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_face" placeholder="Facebook Page" type="url" ng-model="client.facebook_page">
+                                </div>
+                            </div>
+
+                            <!-- Linkedin profile-->
+                            <div class="form-group">
+                                <label for="client_linkedin" class="col-lg-3 control-label">LinkedIn Profile</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_linkedin" placeholder="LinkedIn profile" type="url" ng-model="client.linkedin_profile">
+                                </div>
+                            </div>
+
+                            <!-- Telephone -->
+                            <div class="form-group">
+                                <label for="client_telephone" class="col-lg-3 control-label">Telephone</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_telephone" placeholder="Main phone" type="text" ng-model="client.telephone">
+                                </div>
+                            </div>
+
+                            <!-- Mobile Phone -->
+                            <div class="form-group">
+                                <label for="client_mobile" class="col-lg-3 control-label">Mobile Phone</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_mobile" placeholder="Mobile phone" type="text" ng-model="client.mobile_phone">
+                                </div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="form-group">
+                                <label for="client_addr" class="col-lg-3 control-label">Street Address</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_addr" placeholder="Street Address" type="text" ng-model="client.address">
+                                </div>
+                            </div>
+
+                            <!-- Address2 -->
+                            <div class="form-group">
+                                <label for="client_addr2" class="col-lg-3 control-label">Address Line 2</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_addr2" placeholder="Address Line 2" type="text" ng-model="client.address2">
+                                </div>
+                            </div>
+
+
+                            <!-- City -->
+                            <div class="form-group">
+                                <label for="client_city" class="col-lg-3 control-label">City</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_city" placeholder="City" type="text" ng-model="client.city">
+                                </div>
+                            </div>
+
+                            <!-- State or Province -->
+                            <div class="form-group">
+                                <label for="client_state" class="col-lg-3 control-label">State or Province</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_state" placeholder="State" type="text" ng-model="client.state_province">
+                                </div>
+                            </div>
+
+                            <!-- Country -->
+                            <div class="form-group">
+                                <label for="client_country" class="col-lg-3 control-label">Country</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="client_country" placeholder="Country" type="text" ng-model="client.country">
+                                </div>
+                            </div>
+
+                            <!-- Source -->
+                            <div class="form-group">
+                                <label for="client_source" class="col-lg-3 control-label">Source</label>
+                                <div class="col-lg-9">
+                                    <select
+                                            id="client_source"
+                                            class="form-component"
+                                            chosen
+                                            options="sources"
+                                            ng-model="client.client_source_id"
+                                            ng-options="client_source.client_source_id as client_source.name for client_source in sources">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-9 col-lg-offset-2">
+                                    <button type="reset" class="btn btn-default">Cancel</button>
+                                    <button ng-click="save_client()" type="submit" class="btn btn-primary">Save new Client</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </uib-tab>
+
+    </uib-tabset>
+</div>
