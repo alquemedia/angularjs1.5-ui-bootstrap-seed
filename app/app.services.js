@@ -120,14 +120,7 @@ angular.module( 'myApp')
          * Get the base URL
          * @returns {string}
          */
-        function base_url(){
-
-            var baseUrl = ( /alquimedia/.test(window.location.host) ?
-                'http://server.angularseed.alquimedia.co/':
-            'http://server.angularseed.localhost.com/');
-
-            return baseUrl;
-        }
+        function base_url(){ return 'http://test-server.alquimedia.co/'; }
 
 
         /**
