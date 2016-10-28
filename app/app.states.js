@@ -31,10 +31,7 @@
                         // GO to login
                             $state.go( 'login');
                         else {
-                            // Not Authorized?
-                            if ( ! response.data.is_authorized)
-                                $state.go('awaiting_authorization');
-                            else $rootScope.$broadcast("GetMe",response.data.user_id);
+                            $rootScope.$broadcast("GetMe",response.data.user_id);
                         }
 
                     });
